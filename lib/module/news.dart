@@ -14,14 +14,14 @@ class news{
   
 
   news(
-      {this.P_id,
-      this.type,
-      this.name,
-      this.descr,
-      this.price,
-      this.items,
-      this.others,
-       this.made,
-       this.images, 
+      {required this.P_id,
+      required this.type,
+      required this.name,
+      required this.descr,
+      required this.price,
+      required this.items,
+      required this.others,
+       required this.made,
+       required this.images, 
      });
 }

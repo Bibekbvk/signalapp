@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:signalapp/pages/news.dart';
 
 void main() {
   runApp(MyApp());
@@ -84,6 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+
+         InkWell(child: Text("Tap to go to home screen"),
+         onTap: (){
+          Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => wallpaperPage('Wallpaper')));
+         },)
           ],
         ),
       ),
