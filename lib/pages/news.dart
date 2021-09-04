@@ -122,12 +122,12 @@ class _wallpaperPageState extends State<wallpaperPage> {
                       //       fontSize: 22, fontWeight: FontWeight.w900),
                       // ),
 
-                      Text("Category:${wallpaperList[index].heading}"),
-                      Text("Name:${wallpaperList[index].news1}"),
-                         Text("Stock:${wallpaperList[index].news2}"),
-                            Text("Name:${wallpaperList[index].news3}"),
-                               Text("Name:${wallpaperList[index].image2}"),
-                                  Text("Made in:${wallpaperList[index].auther}"),
+                      Text("head:${wallpaperList[index].heading}"),
+                      Text("news1:${wallpaperList[index].news1}"),
+                         Text("news2:${wallpaperList[index].news2}"),
+                            Text("news3:${wallpaperList[index].news3}"),
+                               Text("image:${wallpaperList[index].image2}"),
+                                  Text("auther:${wallpaperList[index].auther}"),
                     
                               Container(
                                 // child: ElevatedButton(
