@@ -16,15 +16,15 @@ Future<List<news>> allitem() async {
     List<news> allitems = [];
     for (var each in jsonData) {
       news wallpaperList = news(
-          P_id: each['P_id'],
-          type: each['type'],
-          name: each['name'],
-          descr: each['descr'],
-          price: each['price'],
-          items: each['items'],
-          others: each['others'],
-          made: each['made'],
-          images: each['images']
+          news_id: each['news_id'],
+          date: each['date'],
+          heading: each['heading'],
+          image1: each['image1'],
+          news1: each['news1'],
+          news2: each['news2'],
+          image2: each['image2'],
+          news3: each['news3'],
+          auther: each['auther']
           );
       allitems.add(wallpaperList);
     }

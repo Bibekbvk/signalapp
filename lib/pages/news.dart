@@ -83,6 +83,7 @@ class _wallpaperPageState extends State<wallpaperPage> {
         itemCount: wallpaperList.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
+            
             padding: EdgeInsets.all(5),
             color: Colors.white,
             child: Column(
@@ -98,6 +99,7 @@ class _wallpaperPageState extends State<wallpaperPage> {
                         borderRadius: BorderRadius.circular(22),
                         border: Border.all(color: Colors.orange, width: 1)),
                     child: Column(children: [
+
                       Container(
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(22),
@@ -108,7 +110,7 @@ class _wallpaperPageState extends State<wallpaperPage> {
                           child: ClipRRect(
                              borderRadius: BorderRadius.circular(20),
                               child: Image.network(
-                            '${wallpaperList[index].images}',
+                            '${wallpaperList[index].image1}',
                             height: MediaQuery.of(context).size.height / 2,
                             width: MediaQuery.of(context).size.width / 1.3,
                             fit: BoxFit.cover,
@@ -119,12 +121,13 @@ class _wallpaperPageState extends State<wallpaperPage> {
                       //   style: TextStyle(
                       //       fontSize: 22, fontWeight: FontWeight.w900),
                       // ),
-                      Text("Category:${wallpaperList[index].type}"),
-                      Text("Name:${wallpaperList[index].name}"),
-                         Text("Stock:${wallpaperList[index].items}"),
-                            Text("Name:${wallpaperList[index].price}"),
-                               Text("Name:${wallpaperList[index].others}"),
-                                  Text("Made in:${wallpaperList[index].made}"),
+
+                      Text("Category:${wallpaperList[index].heading}"),
+                      Text("Name:${wallpaperList[index].news1}"),
+                         Text("Stock:${wallpaperList[index].news2}"),
+                            Text("Name:${wallpaperList[index].news3}"),
+                               Text("Name:${wallpaperList[index].image2}"),
+                                  Text("Made in:${wallpaperList[index].auther}"),
                     
                               Container(
                                 // child: ElevatedButton(
@@ -214,12 +217,12 @@ class _wallpaperPageState extends State<wallpaperPage> {
                               )
                     ]),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => wallpaperPage('Wallpaper')));
-                  },
+                  // onTap: () {
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //           builder: (context) => wallpaperPage('Wallpaper')));
+                  // },
                 ),
 
 
