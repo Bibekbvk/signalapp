@@ -7,7 +7,7 @@ class DatabaseService{
 
 Future<List<news>> allitem() async {
     var data = await http.get(
-      "$BASE_URL/api/getnews",
+      "$BASE_URL/api/news",
       
     );
 
