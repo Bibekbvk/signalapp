@@ -1,9 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:signalapp/database.dart';
 import 'package:signalapp/module/news.dart';
 
 
 import '../constant.dart';
+import '../main.dart';
 
 class wallpaperPage extends StatefulWidget {
   @override
@@ -55,7 +58,9 @@ class _wallpaperPageState extends State<wallpaperPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey,
            appBar: AppBar(
+             backgroundColor:Colors.orange,
         title: Center(
           child: Row(
             children: [
@@ -66,7 +71,11 @@ class _wallpaperPageState extends State<wallpaperPage> {
                       borderRadius: BorderRadius.circular(90)),
                       child:ListTile(
                         leading: Icon(Icons.photo_album),
-                        title:Text("Wallpaper Page", style: TextStyle(fontSize: 22, color: Colors.white),),
+                        title:Text("News Page", style: TextStyle(fontSize: 22,
+                         color: Colors.black,
+                         fontWeight: FontWeight.bold,
+                         ),
+                         ),
                         
 
                       )
@@ -93,11 +102,11 @@ class _wallpaperPageState extends State<wallpaperPage> {
                   child: Container(
                     // height: MediaQuery.of(context).size.height / 2,
                     // width: MediaQuery.of(context).size.width / 2,
-                    padding: EdgeInsets.all(2),
-                    margin: EdgeInsets.all(2),
+                    padding: EdgeInsets.all(6),
+                    margin: EdgeInsets.all(6),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(22),
-                        border: Border.all(color: Colors.orange, width: 1)),
+                        border: Border.all(color: Colors.black, width: 1)),
                     child: Column(children: [
 
                       Container(
@@ -111,110 +120,143 @@ class _wallpaperPageState extends State<wallpaperPage> {
                              borderRadius: BorderRadius.circular(20),
                               child: Image.network(
                             '${wallpaperList[index].image1}',
-                            height: MediaQuery.of(context).size.height / 2,
-                            width: MediaQuery.of(context).size.width / 1.3,
+                            // height: MediaQuery.of(context).size.height / 2,
+                            // width: MediaQuery.of(context).size.width / 1.3,
                             fit: BoxFit.cover,
                           ))),
-                      // Text(
-                      //   "Canvas",
-                      //   textAlign: TextAlign.center,
-                      //   style: TextStyle(
-                      //       fontSize: 22, fontWeight: FontWeight.w900),
-                      // ),
+                      Text(
+                        "Canvas",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w900),
+                      ),
+                      SizedBox(
+                      height: 10,
+                      ),
 
-                      Text("head:${wallpaperList[index].heading}"),
-                      Text("news1:${wallpaperList[index].news1}"),
-                         Text("news2:${wallpaperList[index].news2}"),
-                            Text("news3:${wallpaperList[index].news3}"),
-                               Text("image:${wallpaperList[index].image2}"),
-                                  Text("auther:${wallpaperList[index].auther}"),
+                      // Text(
+                      //   "${wallpaperList[index].heading}",
+                      // style: TextStyle(
+                      //   fontSize: 20,
+                      //    color: Colors.red,
+                      //   fontWeight: FontWeight.bold,
+                      // ),  
+                      // ),
+                      SizedBox(
+                      height: 10,
+                      ),
+                      Text("${wallpaperList[index].news1}",
+                      style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),  ),
+                         Text("${wallpaperList[index].news2}",
+                         style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      ),
+                         
+                            Text("${wallpaperList[index].news3}",
+                               style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),),
+                                Image.network("image:${wallpaperList[index].image2}",
+                              
+                                ),
+                                  Text("auther:${wallpaperList[index].auther}",
+                                  style: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),),
                     
-                              Container(
-                                // child: ElevatedButton(
-                                //   //hoverColor: Colors.blueAccent,
+                              // Container(
+                              //   child: ElevatedButton(
+                              //     //hoverColor: Colors.blueAccent,
                                   
-                                //   child: Text("Order this item"),
-                                //   onPressed:(){
-                                //        print("hello");
+                              //     child: Text("Order this item"),
+                              //     onPressed:(){
+                              //          print("hello");
                                       
-                                //   showDialog(
-                                //     context: context,
-                                //     builder: (context) => AlertDialog(
-                                //       title: Text(
-                                //           "Please enter you active number, technician will call you for more details"),
-                                //       content: TextField(
-                                //         controller: contact,
-                                //         decoration: InputDecoration(
-                                //           icon: Icon(Icons.contact_phone),
-                                //           labelText: "Enter your active number"
-                                //         ),
-                                //       ),
-                                //       actions: [
-                                //         RaisedButton(
-                                //           child: Text("Submit"),
-                                //           color: Colors.cyanAccent,
-                                //           onPressed: () async {
+                              //     showDialog(
+                              //       context: context,
+                              //       builder: (context) => AlertDialog(
+                              //         title: Text(
+                              //             "Please enter you active number, technician will call you for more details"),
+                              //         content: TextField(
+                              //           controller: contact,
+                              //           decoration: InputDecoration(
+                              //             icon: Icon(Icons.contact_phone),
+                              //             labelText: "Enter your active number"
+                              //           ),
+                              //         ),
+                              //         actions: [
+                              //           ElevatedButton(
+                              //             child: Text("Submit"),
+                              //             // color: Colors.cyanAccent,
+                              //             onPressed: () async {
                                         
                                        
-                                //             var res =
-                                //                 await db.insertOrder(
-                                //                     wallpaperList[index].P_id,
-                                //                     wallpaperList[index].type,
-                                //                     wallpaperList[index].name,
-                                //                     contact.text,
-                                //                     DateTime.now());
+                              //               var res =
+                              //                   await db.insertnews(
+                              //                       wallpaperList[index].news_id,
+                              //                       wallpaperList[index].heading,
+                              //                       wallpaperList[index].auther,
+                              //                       contact.text,
+                              //                       DateTime.now());
 
-                                //             if (res == 200) {
-                                //               showDialog(
-                                //                 context: context,
-                                //                 builder: (context) => AlertDialog(
-                                //                     title: Text(
-                                //                         "Successfully purchased, we will call you for more details"),
-                                //                         actions: [
-                                //                           RaisedButton(
-                                //                             child:Text("OK"),
-                                //                             onPressed:(){
-                                //                              Navigator.of(context, rootNavigator: true).pop();
+                              //               if (res == 200) {
+                              //                 showDialog(
+                              //                   context: context,
+                              //                   builder: (context) => AlertDialog(
+                              //                       title: Text(
+                              //                           "Successfully purchased, we will call you for more details"),
+                              //                           actions: [
+                              //                             ElevatedButton(
+                              //                               child:Text("OK"),
+                              //                               onPressed:(){
+                              //                                Navigator.of(context, rootNavigator: true).pop();
 
-                                //                             }
-                                //                           )
-                                //                         ],
-                                //                         ),
+                              //                               }
+                              //                             )
+                              //                           ],
+                              //                           ),
                                                         
-                                //               );
+                              //                 );
 
-                                //               print("success");
+                              //                 print("success");
                                             
-                                //                 //  Navigator.push(
-                                //                 //   context,
-                                //                 //   MaterialPageRoute(
-                                //                 //       builder: (context) =>
-                                //                 //          Myhomepage()));
+                              //                    Navigator.push(
+                              //                     context,
+                              //                     MaterialPageRoute(
+                              //                         builder: (context) =>
+                              //                            MyHomePage(title: 'Beautiful People',)));
                                                 
                                          
-                                //               // Navigator.pop(context);
-                                //               // Navigator.pop(context);
-                                //               // Navigator.push(
-                                //               //     context,
-                                //               //     MaterialPageRoute(
-                                //               //         builder: (context) =>
-                                //               //             myMedicines()));
-                                //             } else {
-                                //               print("failure");
-                                //             }
-                                //           },
-                                //         ),
-                                //        // RaisedButton(child: Text("Cancel"))
-                                //       ],
-                                //     ),
-                                //   );
+                              //               //   Navigator.pop(context);
+                              //               //   Navigator.pop(context);
+                              //               //   Navigator.push(
+                              //               //       context,
+                              //               //       MaterialPageRoute(
+                              //               //           builder: (context) =>
+                              //               //               myMedicines()));
+                              //               // } else {
+                              //                 print("failure");
+                              //               }
+                              //             },
+                              //           ),
+                              //          // RaisedButton(child: Text("Cancel"))
+                              //         ],
+                              //       ),
+                              //     );
 
 
-                                //   }
+                              //     }
                                     
-                                // ),
+                              //   ),
 
-                              )
+                              // )
                     ]),
                   ),
                   // onTap: () {

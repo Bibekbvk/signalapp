@@ -7,7 +7,7 @@ class DatabaseService{
 
 Future<List<news>> allitem() async {
     var data = await http.get(
-      "$BASE_URL/api/news",
+      Uri.parse("$BASE_URL/api/news"),
       
     );
 
@@ -30,6 +30,8 @@ Future<List<news>> allitem() async {
     }
     return allitems;
   }
+
+  insertnews(int news_id, String heading, String auther, String text, DateTime dateTime) {}
 
 
 }
