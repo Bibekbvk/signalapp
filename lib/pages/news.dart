@@ -1,9 +1,11 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:signalapp/database.dart';
 import 'package:signalapp/module/news.dart';
 
-
 import '../constant.dart';
+import '../main.dart';
 
 class wallpaperPage extends StatefulWidget {
   @override
@@ -55,25 +57,24 @@ class _wallpaperPageState extends State<wallpaperPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-           appBar: AppBar(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple[200],
         title: Center(
           child: Row(
             children: [
               Expanded(
-             
                 child: Container(
-                  decoration: BoxDecoration(         
-                      borderRadius: BorderRadius.circular(90)),
-                      child:ListTile(
-                        leading: Icon(Icons.photo_album),
-                        title:Text("Wallpaper Page", style: TextStyle(fontSize: 22, color: Colors.white),),
-                        
-
-                      )
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(90)),
+                  child: ListTile(
+                    leading: Icon(Icons.photo_camera),
+                    title: Text(
+                      "Information Page",
+                      style: TextStyle(fontSize: 22, color: Colors.white),
+                    ),
                   ),
                 ),
-              
-          
+              ),
             ],
           ),
         ),
@@ -83,13 +84,11 @@ class _wallpaperPageState extends State<wallpaperPage> {
         itemCount: wallpaperList.length,
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            
             padding: EdgeInsets.all(5),
-            color: Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                      InkWell(
+                InkWell(
                   child: Container(
                     // height: MediaQuery.of(context).size.height / 2,
                     // width: MediaQuery.of(context).size.width / 2,
@@ -98,136 +97,93 @@ class _wallpaperPageState extends State<wallpaperPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(22),
                         border: Border.all(color: Colors.orange, width: 1)),
+                    
                     child: Column(children: [
-
                       Container(
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(22),
-                              border: Border.all(
-                          color: Colors.orangeAccent, width: 2)),
-                          padding: EdgeInsets.all(5),
-                          margin: EdgeInsets.all(5),
-                          child: ClipRRect(
-                             borderRadius: BorderRadius.circular(20),
-                              child: Image.network(
+                        padding: EdgeInsets.all(5),
+                        margin: EdgeInsets.all(5),
+
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network(
                             '${wallpaperList[index].image1}',
                             height: MediaQuery.of(context).size.height / 2,
                             width: MediaQuery.of(context).size.width / 1.3,
                             fit: BoxFit.cover,
-                          ))),
-                      // Text(
-                      //   "Canvas",
-                      //   textAlign: TextAlign.center,
-                      //   style: TextStyle(
-                      //       fontSize: 22, fontWeight: FontWeight.w900),
-                      // ),
-
-                      Text("head:${wallpaperList[index].heading}"),
-                      Text("news1:${wallpaperList[index].news1}"),
-                         Text("news2:${wallpaperList[index].news2}"),
-                            Text("news3:${wallpaperList[index].news3}"),
-                               Text("image:${wallpaperList[index].image2}"),
-                                  Text("auther:${wallpaperList[index].auther}"),
-                    
-                              Container(
-                                // child: ElevatedButton(
-                                //   //hoverColor: Colors.blueAccent,
-                                  
-                                //   child: Text("Order this item"),
-                                //   onPressed:(){
-                                //        print("hello");
-                                      
-                                //   showDialog(
-                                //     context: context,
-                                //     builder: (context) => AlertDialog(
-                                //       title: Text(
-                                //           "Please enter you active number, technician will call you for more details"),
-                                //       content: TextField(
-                                //         controller: contact,
-                                //         decoration: InputDecoration(
-                                //           icon: Icon(Icons.contact_phone),
-                                //           labelText: "Enter your active number"
-                                //         ),
-                                //       ),
-                                //       actions: [
-                                //         RaisedButton(
-                                //           child: Text("Submit"),
-                                //           color: Colors.cyanAccent,
-                                //           onPressed: () async {
-                                        
-                                       
-                                //             var res =
-                                //                 await db.insertOrder(
-                                //                     wallpaperList[index].P_id,
-                                //                     wallpaperList[index].type,
-                                //                     wallpaperList[index].name,
-                                //                     contact.text,
-                                //                     DateTime.now());
-
-                                //             if (res == 200) {
-                                //               showDialog(
-                                //                 context: context,
-                                //                 builder: (context) => AlertDialog(
-                                //                     title: Text(
-                                //                         "Successfully purchased, we will call you for more details"),
-                                //                         actions: [
-                                //                           RaisedButton(
-                                //                             child:Text("OK"),
-                                //                             onPressed:(){
-                                //                              Navigator.of(context, rootNavigator: true).pop();
-
-                                //                             }
-                                //                           )
-                                //                         ],
-                                //                         ),
-                                                        
-                                //               );
-
-                                //               print("success");
-                                            
-                                //                 //  Navigator.push(
-                                //                 //   context,
-                                //                 //   MaterialPageRoute(
-                                //                 //       builder: (context) =>
-                                //                 //          Myhomepage()));
-                                                
-                                         
-                                //               // Navigator.pop(context);
-                                //               // Navigator.pop(context);
-                                //               // Navigator.push(
-                                //               //     context,
-                                //               //     MaterialPageRoute(
-                                //               //         builder: (context) =>
-                                //               //             myMedicines()));
-                                //             } else {
-                                //               print("failure");
-                                //             }
-                                //           },
-                                //         ),
-                                //        // RaisedButton(child: Text("Cancel"))
-                                //       ],
-                                //     ),
-                                //   );
-
-
-                                //   }
-                                    
-                                // ),
-
-                              )
+                          ),
+                        ),
+                      ),
+                      Text(
+                        "${wallpaperList[index].heading}",
+                        style: TextStyle(
+                          letterSpacing: 1,
+                          color: Colors.indigo,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 2.0,
+                      ),
+                      Text(
+                        "${wallpaperList[index].news1}",
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.green,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w200,
+                        ),
+                      ),
+                      Text(
+                        "${wallpaperList[index].news2}",
+                        style: TextStyle(
+                           decoration: TextDecoration.underline,
+                          color: Colors.green,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 3,
+                      ),
+                      Text(
+                        "${wallpaperList[index].news3}",
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.green,
+                          fontSize: 17,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 7,
+                      ),
+                      Image.network(
+                        "${wallpaperList[index].image2}",
+                        height: 170.0,
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        "${wallpaperList[index].auther}",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Container(),
                     ]),
                   ),
-                  // onTap: () {
-                  //   Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //           builder: (context) => wallpaperPage('Wallpaper')));
-                  // },
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => wallpaperPage('Wallpaper')));
+                  },
                 ),
-
-
-
-                
               ],
             ),
           );
