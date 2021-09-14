@@ -20,18 +20,22 @@ Future.delayed(Duration(seconds: this.duration),(){
     children: <Widget>[Container(
       
       decoration: BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage('https://i.pinimg.com/originals/cc/11/db/cc11dba5c9ddc5a65f73d74f50c50bdc.jpg'),
-          fit: BoxFit.cover
-        ) ,
-      ),
+                          gradient: LinearGradient(
+                          colors: [Colors.blue.shade100,Colors.blue.shade200,Colors.blue.shade300,Colors.blue.shade400,],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter
+
+                          )
+                      
+                            ),
       
     ),
     Container(
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.center,
                 child: Text(
-                  'Apple Stock News',
-                  style: TextStyle(shadows: <Shadow>[
+                  'Apple Stock',
+                  style: TextStyle(
+                    shadows: <Shadow>[
       Shadow(
         offset: Offset(10.0, 10.0),
         blurRadius: 3.0,

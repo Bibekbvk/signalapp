@@ -83,12 +83,15 @@ class _wallpaperPageState extends State<wallpaperPage> {
         ),
         body: Stack(alignment: Alignment.center, children: <Widget>[
           Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(
-                      'https://cdn.wallpapersafari.com/92/69/UWBqVI.jpg'),
-                  fit: BoxFit.cover),
-            ),
+             decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                          colors: [Colors.blue.shade100,Colors.blue.shade200,Colors.blue.shade300,Colors.blue.shade400,],
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter
+
+                          )
+                      
+                            ),
           ),
           ListView.builder(
             controller: _scrollController,
