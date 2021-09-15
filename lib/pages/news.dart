@@ -59,27 +59,30 @@ class _wallpaperPageState extends State<wallpaperPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black,
+              centerTitle: true,
           title: Center(
             child: Row(
               children: [
                 Expanded(
                   child: Container(
+                    
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(90)),
                       child: ListTile(
-                        leading: Icon(Icons.photo_album, color:  Colors.black,
+                        leading: Icon(Icons.photo_album, color: Colors.white,
                       ),
                         title: Text(
                           "Wallpaper Page",
-                          style: TextStyle(fontSize: 22, color: Colors.black),
+                          style: TextStyle(fontSize: 22, color: Colors.white),
                         ),
                       )),
                 ),
               ],
             ),
           ),
-          backgroundColor: Colors.blue.shade50,
-          elevation: 0,
+         
+         
         ),
         body: Stack(alignment: Alignment.center, children: <Widget>[
           Container(

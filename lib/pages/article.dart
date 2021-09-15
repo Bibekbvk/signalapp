@@ -65,18 +65,19 @@ class _ArticleState extends State<Article> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(90)),
                       child: ListTile(
-                        leading: Icon(Icons.article, color:  Colors.black,
+                        leading: Icon(Icons.article, color: Colors.white
                       ),
                         title: Text(
                           "Article Page",
-                          style: TextStyle(fontSize: 22, color: Colors.black),
+                          style: TextStyle(fontSize: 22,color: Colors.white),
                         ),
                       )),
                 ),
               ],
             ),
           ),
-          backgroundColor: Colors.blue.shade50,
+          backgroundColor: Colors.black,
+              centerTitle: true,
           elevation: 0,
         ),
         body: Stack(alignment: Alignment.center, children: <Widget>[
@@ -103,7 +104,8 @@ class _ArticleState extends State<Article> {
                         
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
-                          colors: [Colors.blue.shade100,Colors.blue.shade200,Colors.blue.shade300,Colors.blue.shade400,],
+                          colors: [Colors.blue.shade100
+                          ,Colors.blue.shade200,Colors.blue.shade300,Colors.blue.shade400,],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter
 
@@ -163,8 +165,7 @@ class _ArticleState extends State<Article> {
                               fontWeight: FontWeight.normal
                             ),),
 
-                          Image.network("${articlelist[index].Image2}",
-                            height: 200.0, ),
+                          
 
                           Text(
                             "${articlelist[index].Auther}",
