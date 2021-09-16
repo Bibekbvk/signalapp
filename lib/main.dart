@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     vertical: 120,
                   ),
                   child: Column(
-                    
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
 
 
@@ -221,7 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
                   // third row
-                  SizedBox(height: 70,),
+                  SizedBox(height: 50,),
                   Row(
                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
