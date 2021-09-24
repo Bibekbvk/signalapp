@@ -62,4 +62,20 @@ Future<List<article>> item() async {
     return items;
   }
 
+
+Future<int> insertfeedbacks(
+      String User_ID, String Contact, String Name, String Feedback) async {
+    var data = await http.get(
+      Uri.parse("$BASE_URL/api/insertfeedbacks?User_ID=${User_ID}&Contact=${Contact}&Name=${Name}&Feedback=${Feedback}"),
+    );
+    int code = data.statusCode;
+    var jsonData = json.decode((data.body));
+    String val = jsonData["error"];
+    if (val == null) {
+      val = "";
+    }
+    print(val);
+    return code;
+  }
+
 }

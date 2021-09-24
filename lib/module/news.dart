@@ -1,7 +1,10 @@
+// ignore: unused_import
 import 'package:flutter/material.dart';
 
 
+// ignore: camel_case_types
 class news{
+  // ignore: non_constant_identifier_names
   final int news_id;
   final String date;
   final String heading;
@@ -14,6 +17,7 @@ class news{
   
 
   news(
+      // ignore: non_constant_identifier_names
       {required this.news_id,
       required this.date,
       required this.heading,

@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:signalapp/main.dart';
@@ -9,12 +10,22 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isRememberMe = false;
+   TextEditingController password =TextEditingController();
 
+  final GlobalKey<FormState> _formKey =GlobalKey<FormState>();
+  validator(){
+    if(_formKey.currentState != null && _formKey.currentState!.validate()){
+      print("Sucessfully validate");
+    } else{
+      print('Error found');
+    }
+      }
 // Emaill Box
   Widget buildEmail() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+      
         Text(
           'Email',
           style: TextStyle(
@@ -28,6 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         Container(
           alignment: Alignment.centerLeft,
+          
           decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -36,17 +48,22 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.black26, blurRadius: 6, offset: Offset(0, 2)),
               ]),
           height: 60,
-          child: TextField(
+          child: TextFormField(
             keyboardType: TextInputType.emailAddress,
             autofillHints: [AutofillHints.email],
             style: TextStyle(color: Colors.black87),
+            validator: (email) => email !=null && !EmailValidator.validate(email)
+            ? 'Enter a vaild Email'
+            :null , 
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14),
               prefixIcon: Icon(Icons.email, color: Colors.black),
               hintText: 'Email',
               hintStyle: TextStyle(color: Colors.black38),
+              
             ),
+            
           ),
         ),
       ],
@@ -147,8 +164,19 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
+      
       child: ElevatedButton(
         onPressed: () {
+          // ignore: non_constant_identifier_names
+          final Form = _formKey.currentState!;
+          if (Form.validate()){ 
+            final email = buildEmail;
+            ScaffoldMessenger.of(context)
+            ..removeCurrentSnackBar()
+            ..showSnackBar(SnackBar(
+            content: Text('your email is$email'),
+            ));
+          }
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => MyHomePage(
                     title: '',
@@ -221,7 +249,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       Colors.blue.shade400,
                     ]),
               ),
-              child: SingleChildScrollView(
+              child: Form( key: _formKey,
+                child:
+               SingleChildScrollView(
                 physics: AlwaysScrollableScrollPhysics(),
                 padding: EdgeInsets.symmetric(
                   horizontal: 25,
@@ -230,6 +260,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    
                     Container(
                         alignment: Alignment.center,
                         
@@ -252,6 +283,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     buildSignupButton(),
                   ],
                 ),
+              ),
               ),
             ),
           ],

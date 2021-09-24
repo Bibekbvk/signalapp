@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 import 'package:signalapp/main.dart';
+import 'package:signalapp/pages/feedback.dart';
 import 'package:signalapp/pages/login.dart';
 
 class SideDrawer extends StatelessWidget {
@@ -37,11 +37,18 @@ class SideDrawer extends StatelessWidget {
                 onTap: () => Navigator.pushReplacementNamed(context, 'Setting'),
               ),
               ListTile(
+                title: Text('Feedback'),
+                leading: Icon(Icons.person),
+                onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => Feedbacks()))
+              ),
+              ListTile(
                 title: Text('Logout'),
                 leading: Icon(Icons.logout),
                 onTap: () => Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => LoginScreen())),
               ),
+               
             ],
           ),
         ),

@@ -52,8 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           centerTitle: true,
+          title: Text('Home'),
           actions: [
-            IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+            IconButton(icon: Icon(Icons.more_vert), onPressed: () {
+            
+            }
+            ),
           ],
         ),
         drawer: SideDrawer(),
@@ -77,12 +81,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     horizontal: 25,
                     vertical: 120,
                   ),
+                  //Button column 
+                  
+
                   child: Column(
+                    
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
 
 
                       // First Row 
+                      SizedBox(height: 10,),
                     Row(
                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
@@ -129,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Text('News')
                       ],),
 
-                      ///Trending button
+                      //Trending button
                        Column(children: [
                       ElevatedButton(
                         onPressed: () {
@@ -175,7 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.circular(5)),
                         ),
                       ),
-                      Text('Article')
+                      Text('Article', )
                       ],),
 
                       // Analysis Button
