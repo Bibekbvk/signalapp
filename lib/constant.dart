@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-const String BASE_URL = "http://192.168.100.198:3000";
+const String BASE_URL = "https://fierce-citadel-39500.herokuapp.com";
